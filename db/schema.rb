@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_14_102959) do
+ActiveRecord::Schema.define(version: 2021_12_14_103836) do
 
   create_table "galactic_pictures", force: :cascade do |t|
     t.string "date"
-    t.string "description"
+    t.text "description"
     t.string "title"
     t.string "media_type"
     t.string "copyright"
