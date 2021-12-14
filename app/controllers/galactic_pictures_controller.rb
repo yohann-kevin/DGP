@@ -47,6 +47,6 @@ class GalacticPicturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def galactic_picture_params
-      params.require(:galactic_picture).permit(:date, :description, :title, :media_type, :copyright, :hdurl, :url, :to_like, :download)
+      params.permit(:date, :description, :title, :media_type, :copyright, :hd_surl, :url, :to_like, :download)
     end
 end
