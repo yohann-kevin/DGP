@@ -8,6 +8,22 @@ class GalacticPicturesController < ApplicationController
     render json: @galactic_pictures
   end
 
+  def nasa_call
+    response =  JSON.parse(RestClient.get("https://api.nasa.gov/planetary/apod?api_key=#{ENV['NASA_API_KEY']}"))
+    response[:description] = response.delete("explanation")
+    response[:hd_url] = response.delete("hdurl")
+    response.delete("service_version")
+    response["copyright"] = "Provided by NASA" if response["copyright"].nil?
+
+    @galactic_picture = GalacticPicture.new(response)
+
+    if @galactic_picture.save
+      render json: @galactic_picture, status: :created, location: @galactic_picture
+    else
+      render json: @galactic_picture.errors, status: :unprocessable_entity
+    end
+  end
+
   # GET /galactic_pictures/1
   def show
     render json: @galactic_picture
