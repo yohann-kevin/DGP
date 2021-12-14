@@ -4,6 +4,6 @@ class GalacticPicture < ApplicationRecord
   validates :title, presence: true
   validates :media_type, presence: true
   validates :copyright, presence: true
-  validates :hdurl, presence: true
+  validates :hd_url, presence: true
   validates :url, presence: true
 end

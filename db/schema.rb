@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_14_095558) do
+ActiveRecord::Schema.define(version: 2021_12_14_102959) do
 
   create_table "galactic_pictures", force: :cascade do |t|
     t.string "date"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_12_14_095558) do
     t.string "title"
     t.string "media_type"
     t.string "copyright"
-    t.string "hdurl"
+    t.string "hd_url"
     t.string "url"
     t.integer "to_like"
     t.string "download"
