@@ -64,4 +64,4 @@ To contribute to the happy API project please follow the instructions in CONTRIB
 
 ## Contributor
 
-- PERRIGUEY Yohann 😉
+- PERRIGUEY Yohann
