@@ -6,4 +6,13 @@ class GalacticPicture < ApplicationRecord
   validates :copyright, presence: true
   validates :hd_url, presence: true
   validates :url, presence: true
+
+  def self.register_nasa_picture(nasa_picture)
+    nasa_picture[:description] = nasa_picture.delete("explanation")
+    nasa_picture[:hd_url] = nasa_picture.delete("hdurl")
+    nasa_picture.delete("service_version")
+    nasa_picture["copyright"] = "Provided by NASA" if nasa_picture["copyright"].nil?
+    nasa_picture["date"] = Date.today
+    @galactic_picture = GalacticPicture.new(nasa_picture)
+  end
 end
