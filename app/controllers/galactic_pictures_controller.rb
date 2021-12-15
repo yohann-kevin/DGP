@@ -3,7 +3,7 @@ class GalacticPicturesController < ApplicationController
 
   # GET /galactic_pictures
   def index
-    @galactic_pictures = GalacticPicture.all
+    @galactic_pictures = GalacticPicture.all.order('date DESC')
 
     render json: @galactic_pictures
   end
@@ -24,7 +24,6 @@ class GalacticPicturesController < ApplicationController
     final_response = []
     response = JSON.parse(RestClient.get("https://api.nasa.gov/planetary/apod?api_key=#{ENV['NASA_API_KEY']}" + "&start_date=2021-01-01"))
 
-    # render json: response
     response.each do |picture|
       galactic_picture = GalacticPicture.register_nasa_picture(picture);
       galactic_picture.id = SecureRandom.uuid
