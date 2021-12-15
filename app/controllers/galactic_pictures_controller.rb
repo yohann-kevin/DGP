@@ -1,3 +1,5 @@
+require "date"
+
 class GalacticPicturesController < ApplicationController
   before_action :set_galactic_picture, only: [:show, :update, :destroy]
 
@@ -14,6 +16,7 @@ class GalacticPicturesController < ApplicationController
     response[:hd_url] = response.delete("hdurl")
     response.delete("service_version")
     response["copyright"] = "Provided by NASA" if response["copyright"].nil?
+    response["date"] = Date.today
 
     @galactic_picture = GalacticPicture.new(response)
 
