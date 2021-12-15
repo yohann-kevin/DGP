@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_14_103836) do
+ActiveRecord::Schema.define(version: 2021_12_15_140123) do
 
-  create_table "galactic_pictures", force: :cascade do |t|
-    t.string "date"
+  create_table "galactic_pictures", id: { type: :string, limit: 36 }, force: :cascade do |t|
+    t.datetime "date"
     t.text "description"
     t.string "title"
     t.string "media_type"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_12_14_103836) do
     t.string "download"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["date"], name: "index_galactic_pictures_on_date", unique: true
   end
 
 end
