@@ -2,9 +2,13 @@
   <h1>DGP-BACK</h1>
 </div>
 
-// BADGE
+<div align="center">
 
-Back-End blog daily galactic picture
+[![Maintainability](https://api.codeclimate.com/v1/badges/d76af7e03021ed728c10/maintainability)](https://codeclimate.com/github/yohann-kevin/DGP/maintainability)
+
+</div>
+
+Back End of the daily galactic picture blog
 
 ## Technology
 
