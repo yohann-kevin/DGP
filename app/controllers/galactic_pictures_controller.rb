@@ -1,5 +1,5 @@
 class GalacticPicturesController < ApplicationController
-  before_action :set_galactic_picture, only: [:show, :update, :destroy]
+  before_action :set_galactic_picture, only: %i[show update destroy]
 
   # GET /galactic_pictures
   def index
@@ -9,8 +9,8 @@ class GalacticPicturesController < ApplicationController
   end
 
   def nasa_call
-    response =  JSON.parse(RestClient.get("https://api.nasa.gov/planetary/apod?api_key=#{ENV['NASA_API_KEY']}"))
-    @galactic_picture = GalacticPicture.register_nasa_picture(response);
+    response = JSON.parse(RestClient.get("https://api.nasa.gov/planetary/apod?api_key=#{ENV['NASA_API_KEY']}"))
+    @galactic_picture = GalacticPicture.register_nasa_picture(response)
     @galactic_picture.id = SecureRandom.uuid
 
     if @galactic_picture.save
@@ -22,11 +22,11 @@ class GalacticPicturesController < ApplicationController
 
   def find_all_nasa_picture
     final_response = []
-    response = JSON.parse(RestClient.get("https://api.nasa.gov/planetary/apod?api_key=#{ENV['NASA_API_KEY']}" + "&start_date=2021-01-01"))
+    response = JSON.parse(RestClient.get("https://api.nasa.gov/planetary/apod?api_key=#{ENV['NASA_API_KEY']}&start_date=2021-01-01"))
 
     # render json: response
     response.each do |picture|
-      galactic_picture = GalacticPicture.register_nasa_picture(picture);
+      galactic_picture = GalacticPicture.register_nasa_picture(picture)
       galactic_picture.id = SecureRandom.uuid
       final_response << galactic_picture if galactic_picture.save
     end
@@ -66,13 +66,14 @@ class GalacticPicturesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_galactic_picture
-      @galactic_picture = GalacticPicture.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def galactic_picture_params
-      params.permit(:date, :description, :title, :media_type, :copyright, :hd_surl, :url, :to_like, :download)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_galactic_picture
+    @galactic_picture = GalacticPicture.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def galactic_picture_params
+    params.permit(:date, :description, :title, :media_type, :copyright, :hd_surl, :url, :to_like, :download)
+  end
 end
