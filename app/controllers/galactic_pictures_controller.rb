@@ -1,5 +1,3 @@
-require "date"
-
 class GalacticPicturesController < ApplicationController
   before_action :set_galactic_picture, only: [:show, :update, :destroy]
 
@@ -19,6 +17,19 @@ class GalacticPicturesController < ApplicationController
     else
       render json: @galactic_picture.errors, status: :unprocessable_entity
     end
+  end
+
+  def find_all_nasa_picture
+    final_response = []
+    response = JSON.parse(RestClient.get("https://api.nasa.gov/planetary/apod?api_key=#{ENV['NASA_API_KEY']}" + "&start_date=2021-01-01"))
+
+    # render json: response
+    response.each do |picture|
+      galactic_picture = GalacticPicture.register_nasa_picture(picture);
+      final_response << galactic_picture if galactic_picture.save
+    end
+
+    render json: final_response
   end
 
   # GET /galactic_pictures/1

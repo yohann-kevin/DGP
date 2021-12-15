@@ -12,7 +12,7 @@ class GalacticPicture < ApplicationRecord
     nasa_picture[:hd_url] = nasa_picture.delete("hdurl")
     nasa_picture.delete("service_version")
     nasa_picture["copyright"] = "Provided by NASA" if nasa_picture["copyright"].nil?
-    nasa_picture["date"] = Date.today
+    nasa_picture["date"] = nasa_picture["date"].to_time
     @galactic_picture = GalacticPicture.new(nasa_picture)
   end
 end
