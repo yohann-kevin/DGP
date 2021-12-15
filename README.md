@@ -1,24 +1,63 @@
-# README
+<div align="center">
+  <h1>DGP-BACK</h1>
+</div>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+// BADGE
 
-Things you may want to cover:
+Back-End blog daily galactic picture
 
-* Ruby version
+## Technology
 
-* System dependencies
+- Ruby and Ruby on Rails
+- DB in sqlite3 on development and mysql2 for production
+- Rails spec for test application
+- Deploy with heroku
+- Github action for continuous integration
 
-* Configuration
+## How to install this project
 
-* Database creation
+In order to install the project start by cloning the repository
 
-* Database initialization
+```shell
+git clone https://github.com/yohann-kevin/DGP.git
 
-* How to run the test suite
+cd DGP
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+To start t will be necessary to install all the dependencies.
 
-* Deployment instructions
+```shell
+bundle install
+```
 
-* ...
+If you don't have mysql on your machine, use this command
+
+```shell
+bundle install --without=production
+```
+
+Once the dependencies are installed, you will have to create the local database.
+
+```shell
+rails db:create
+```
+
+Then you need to load the database schema.
+
+```shell
+rails db:schema:load
+```
+
+And finally you can start server of this project
+
+```shell
+rails s
+```
+
+## How to contribute
+
+To contribute to the happy API project please follow the instructions in CONTRIBUTING.md
+
+## Contributor
+
+- PERRIGUEY Yohann 😉
