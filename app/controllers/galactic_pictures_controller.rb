@@ -3,7 +3,7 @@ class GalacticPicturesController < ApplicationController
 
   # GET /galactic_pictures
   def index
-    @galactic_pictures = GalacticPicture.all.order('date DESC')
+    @galactic_pictures = GalacticPicture.all.order("date DESC")
 
     render json: @galactic_pictures
   end
