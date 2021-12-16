@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :galactic_pictures
+
+  get "/galactic_pictures/most/liked" => "galactic_pictures#find_most_liked"
+  get "/galactic_pictures/most/download" => "galactic_pictures#find_most_download"
+
   put "/galactic_pictures/update/like" => "galactic_pictures#update_like"
   put "/galactic_pictures/update/download" => "galactic_pictures#update_download"
 

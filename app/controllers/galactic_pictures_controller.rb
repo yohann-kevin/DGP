@@ -33,6 +33,18 @@ class GalacticPicturesController < ApplicationController
     render json: final_response
   end
 
+  def find_most_liked
+    @galactic_pictures = GalacticPicture.all.order("to_like DESC").limit(8)
+
+    render json: @galactic_pictures
+  end
+
+  def find_most_download
+    @galactic_pictures = GalacticPicture.all.order("download DESC").limit(8)
+
+    render json: @galactic_pictures
+  end
+
   # GET /galactic_pictures/1
   def show
     render json: @galactic_picture
