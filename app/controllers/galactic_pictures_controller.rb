@@ -1,5 +1,5 @@
 class GalacticPicturesController < ApplicationController
-  before_action :set_galactic_picture, only: %i[show update update_like destroy]
+  before_action :set_galactic_picture, only: %i[show update update_like update_download destroy]
 
   # GET /galactic_pictures
   def index
@@ -61,6 +61,16 @@ class GalacticPicturesController < ApplicationController
 
   def update_like
     !@galactic_picture.nil? ? @galactic_picture.to_like += 1 : @galactic_picture.to_like = 1
+
+    if @galactic_picture.save
+      render json: @galactic_picture
+    else
+      render json: @galactic_picture.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update_download
+    !@galactic_picture.nil? ? @galactic_picture.download += 1 : @galactic_picture.download = 1
 
     if @galactic_picture.save
       render json: @galactic_picture
