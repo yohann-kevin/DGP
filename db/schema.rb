@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_15_140123) do
+ActiveRecord::Schema.define(version: 2021_12_16_190149) do
 
   create_table "galactic_pictures", id: { type: :string, limit: 36 }, force: :cascade do |t|
     t.datetime "date"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2021_12_15_140123) do
     t.string "copyright"
     t.string "hd_url"
     t.string "url"
-    t.integer "to_like"
-    t.string "download"
+    t.integer "to_like", default: 0
+    t.integer "download", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["date"], name: "index_galactic_pictures_on_date", unique: true
