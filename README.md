@@ -1,24 +1,67 @@
-# README
+<div align="center">
+  <h1>DGP-BACK</h1>
+</div>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<div align="center">
 
-Things you may want to cover:
+[![Maintainability](https://api.codeclimate.com/v1/badges/d76af7e03021ed728c10/maintainability)](https://codeclimate.com/github/yohann-kevin/DGP/maintainability)
 
-* Ruby version
+</div>
 
-* System dependencies
+Back End of the daily galactic picture blog
 
-* Configuration
+## Technology
 
-* Database creation
+- Ruby and Ruby on Rails
+- DB in sqlite3 on development and mysql2 for production
+- Rails spec for test application
+- Deploy with heroku
+- Github action for continuous integration
 
-* Database initialization
+## How to install this project
 
-* How to run the test suite
+In order to install the project start by cloning the repository
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+git clone https://github.com/yohann-kevin/DGP.git
 
-* Deployment instructions
+cd DGP
+```
 
-* ...
+To start t will be necessary to install all the dependencies.
+
+```shell
+bundle install
+```
+
+If you don't have mysql on your machine, use this command
+
+```shell
+bundle install --without=production
+```
+
+Once the dependencies are installed, you will have to create the local database.
+
+```shell
+rails db:create
+```
+
+Then you need to load the database schema.
+
+```shell
+rails db:schema:load
+```
+
+And finally you can start server of this project
+
+```shell
+rails s
+```
+
+## How to contribute
+
+To contribute to the happy API project please follow the instructions in CONTRIBUTING.md
+
+## Contributor
+
+- PERRIGUEY Yohann
