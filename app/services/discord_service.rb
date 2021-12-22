@@ -4,8 +4,7 @@ class DiscordService
   end
 
   def send_message
-    url = "https://discord.com/api/webhooks/923295093501333555/HWD3cfFuh9DHLXx3L9hMjjSu5hRAgZ5bO_mvlfkzQlXrU2uunBnf614iGA_vQjGIbxsA"
-    client = Discordrb::Webhooks::Client.new(url: url)
+    client = Discordrb::Webhooks::Client.new(url: ENV["DISCORD_WEBHOOK"])
     client.execute do |builder|
       builder.content = "Scheduler run !"
       builder.add_embed do |embed|
