@@ -19,6 +19,8 @@ gem "rest-client"
 gem "rubocop", "~> 1.22", require: false
 gem "rubocop-rails", require: false
 gem "rubocop-rspec", require: false
+# dirscord bot
+gem "discordrb-webhooks"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

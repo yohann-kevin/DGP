@@ -3,8 +3,8 @@ task daily_picture: :environment do
   response = JSON.parse(RestClient.get("https://api.nasa.gov/planetary/apod?api_key=#{ENV['NASA_API_KEY']}"))
   @galactic_picture = GalacticPicture.register_nasa_picture(response)
   @galactic_picture.id = SecureRandom.uuid
-
   msg = @galactic_picture.save ? "Image is register :)" : "An error as occured !"
+  DiscordService.new(msg).send_message
   puts msg
 end
 
