@@ -4,7 +4,6 @@ class GalacticPicture < ApplicationRecord
   validates :title, presence: true
   validates :media_type, presence: true
   validates :copyright, presence: true
-  validates :hd_url, presence: true
   validates :url, presence: true
 
   def self.register_nasa_picture(nasa_picture)
