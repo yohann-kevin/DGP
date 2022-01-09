@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :galactic_pictures
 
   get "/galactic_pictures/most/liked" => "galactic_pictures#find_most_liked"

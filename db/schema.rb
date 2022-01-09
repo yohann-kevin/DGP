@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_190149) do
+ActiveRecord::Schema.define(version: 2022_01_09_163652) do
 
   create_table "galactic_pictures", id: { type: :string, limit: 36 }, force: :cascade do |t|
     t.datetime "date"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2021_12_16_190149) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["date"], name: "index_galactic_pictures_on_date", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "pseudo"
+    t.string "email"
+    t.string "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
