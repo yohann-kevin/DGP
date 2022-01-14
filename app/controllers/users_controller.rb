@@ -15,8 +15,11 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+    # TODO: replace params by body
     @user = User.new(user_params)
-
+    # TODO: generate UUID
+    @user.id = SecureRandom.uuid
+    # TODO: encrypt password with bcrypt
     if @user.save
       render json: @user, status: :created, location: @user
     else
@@ -26,6 +29,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
+    # TODO: change params by body
     if @user.update(user_params)
       render json: @user
     else
@@ -46,6 +50,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:pseudo, :email, :password)
+      params.permit(:pseudo, :email, :password)
+      # params.require(:user).permit(:pseudo, :email, :password)
     end
 end
