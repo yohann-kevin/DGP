@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :users
+  post "/users/auth" => "users#login"
+
   resources :galactic_pictures
 
   get "/galactic_pictures/most/liked" => "galactic_pictures#find_most_liked"

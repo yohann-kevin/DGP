@@ -31,6 +31,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    user_info = JSON.parse(request.body.read)
+    user = User.find_by(email: user_info["email"].strip)
+    password = BCrypt::Password.new(user.password) unless user.nil?
+    if password == user_info[:password]
+      payload = { user_id: user.id }
+      token = JWT.encode(payload, nil, "HS256")
+      render json: { "token" => token, "user_info" => user }
+    else
+      render json: { message: "undefined users" }, status: :unauthorized
+    end
+  end
+
   # PATCH/PUT /users/1
   def update
     # TODO: change params by body

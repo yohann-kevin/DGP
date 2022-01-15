@@ -21,6 +21,8 @@ gem "rubocop-rails", require: false
 gem "rubocop-rspec", require: false
 # dirscord bot
 gem "discordrb-webhooks"
+# jwt token
+gem "jwt"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
