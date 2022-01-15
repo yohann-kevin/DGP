@@ -17,20 +17,19 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    # TODO: login users after register, and return jwt token
-
     user_info = JSON.parse(request.body.read)
     user_info[:id] = SecureRandom.uuid
     user_info[:password] = BCrypt::Password.create(user_info[:password])
     @user = User.new(user_info)
 
     if @user.save
-      render json: @user, status: :created, location: @user
+      login
     else
       render json: @user.errors, status: :unprocessable_entity
     end
   end
 
+  # POST /users/auth
   def login
     user_info = JSON.parse(request.body.read)
     user = User.find_by(email: user_info["email"].strip)
