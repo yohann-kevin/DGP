@@ -17,11 +17,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    # TODO: replace params by body
-    # @user = User.new(user_params)
-    # TODO: generate UUID
-    # @user.id = SecureRandom.uuid
-    # TODO: encrypt password with bcrypt
+    # TODO: login users after register, and return jwt token
 
     user_info = JSON.parse(request.body.read)
     user_info[:id] = SecureRandom.uuid
