@@ -1,3 +1,5 @@
+require "bcrypt"
+
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show update destroy]
 
@@ -16,10 +18,16 @@ class UsersController < ApplicationController
   # POST /users
   def create
     # TODO: replace params by body
-    @user = User.new(user_params)
+    # @user = User.new(user_params)
     # TODO: generate UUID
-    @user.id = SecureRandom.uuid
+    # @user.id = SecureRandom.uuid
     # TODO: encrypt password with bcrypt
+
+    user_info = JSON.parse(request.body.read)
+    user_info[:id] = SecureRandom.uuid
+    user_info[:password] = BCrypt::Password.create(user_info[:password])
+    @user = User.new(user_info)
+
     if @user.save
       render json: @user, status: :created, location: @user
     else
