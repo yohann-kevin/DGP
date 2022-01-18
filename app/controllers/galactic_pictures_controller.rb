@@ -1,4 +1,6 @@
 class GalacticPicturesController < ApplicationController
+  skip_before_action :authorized, only: %i[index nasa_call find_all_nasa_picture
+                                           find_most_liked find_most_download show create update update_download update_like]
   before_action :set_galactic_picture, only: %i[show update update_like update_download destroy]
 
   # GET /galactic_pictures
