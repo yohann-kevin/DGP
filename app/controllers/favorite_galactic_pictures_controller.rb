@@ -1,5 +1,5 @@
 class FavoriteGalacticPicturesController < ApplicationController
-  before_action :set_favorite_galactic_picture, only: [:show, :update, :destroy]
+  before_action :set_favorite_galactic_picture, only: %i[show update destroy]
 
   # GET /favorite_galactic_pictures
   def index
@@ -39,13 +39,14 @@ class FavoriteGalacticPicturesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_favorite_galactic_picture
-      @favorite_galactic_picture = FavoriteGalacticPicture.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def favorite_galactic_picture_params
-      params.require(:favorite_galactic_picture).permit(:galactic_picture_id, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_favorite_galactic_picture
+    @favorite_galactic_picture = FavoriteGalacticPicture.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def favorite_galactic_picture_params
+    params.require(:favorite_galactic_picture).permit(:galactic_picture_id, :user_id)
+  end
 end
