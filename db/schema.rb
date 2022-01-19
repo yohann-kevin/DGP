@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_14_175747) do
+ActiveRecord::Schema.define(version: 2022_01_19_113850) do
+
+  create_table "favorite_galactic_pictures", force: :cascade do |t|
+    t.string "galactic_picture_id"
+    t.string "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "galactic_pictures", id: { type: :string, limit: 36 }, force: :cascade do |t|
     t.datetime "date"
