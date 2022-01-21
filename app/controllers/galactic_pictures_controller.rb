@@ -76,6 +76,8 @@ class GalacticPicturesController < ApplicationController
   def update_like
     !@galactic_picture.nil? ? @galactic_picture.to_like += 1 : @galactic_picture.to_like = 1
 
+    # TODO: add pictures in favorites
+
     if @galactic_picture.save
       render json: @galactic_picture
     else

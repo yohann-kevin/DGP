@@ -1,0 +1,2 @@
+class FavoriteGalacticPicture < ApplicationRecord
+end

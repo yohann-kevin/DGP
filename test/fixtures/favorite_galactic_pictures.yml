@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  galactic_picture_id: MyString
+  user_id: MyString
+
+two:
+  galactic_picture_id: MyString
+  user_id: MyString

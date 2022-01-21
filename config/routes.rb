@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :favorite_galactic_pictures
   resources :users
   post "/users/auth" => "users#login"
 
