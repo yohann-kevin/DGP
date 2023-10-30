@@ -200,7 +200,7 @@ GEM
 GEM
   remote: https://rubygems.pkg.github.com/yohann-kevin/
   specs:
-    hygie_back_runner (1.1.0)
+    hygie_back_runner (1.2.0)
       rack
       rails (~> 6.0, >= 6.0)
 
@@ -214,7 +214,7 @@ DEPENDENCIES
   byebug
   discordrb-webhooks
   dotenv-rails
-  hygie_back_runner (= 1.1.0)!
+  hygie_back_runner (= 1.2.0)!
   jwt
   listen (~> 3.3)
   mysql2 (~> 0.5.2)
