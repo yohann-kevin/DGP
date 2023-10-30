@@ -35,7 +35,7 @@ gem "rack-cors"
 
 # hygie back runner
 source "https://rubygems.pkg.github.com/yohann-kevin" do
-  gem "hygie_back_runner", "1.1.0"
+  gem "hygie_back_runner", "1.2.0"
 end
 
 group :development, :test do
