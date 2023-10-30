@@ -197,6 +197,13 @@ GEM
     websocket-extensions (0.1.5)
     zeitwerk (2.5.1)
 
+GEM
+  remote: https://rubygems.pkg.github.com/yohann-kevin/
+  specs:
+    hygie_back_runner (1.1.0)
+      rack
+      rails (~> 6.0, >= 6.0)
+
 PLATFORMS
   arm64-darwin-21
   x86_64-linux
@@ -207,6 +214,7 @@ DEPENDENCIES
   byebug
   discordrb-webhooks
   dotenv-rails
+  hygie_back_runner (= 1.1.0)!
   jwt
   listen (~> 3.3)
   mysql2 (~> 0.5.2)
@@ -225,4 +233,4 @@ RUBY VERSION
    ruby 3.0.1p64
 
 BUNDLED WITH
-   2.2.33
+   2.3.23
