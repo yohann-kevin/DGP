@@ -230,6 +230,7 @@ GEM
       rails (~> 6.0, >= 6.0)
 
 PLATFORMS
+  arm64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
