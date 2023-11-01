@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount HygieBackRunner::Engine => "/hygie_back_runner"
+
   resources :users
   post "/users/auth" => "users#login"
 
